@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Watchlist</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    input, button, select {
+      margin: 5px;
+      padding: 8px;
+    }
+
+    #search-results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .movie-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .star {
+      cursor: pointer;
+      color: gray;
+    }
+
+    .star.filled {
+      color: gold;
+    }
+
+    #auth-section {
+      border: 1px solid #ccc;
+      padding: 15px;
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    .watched {
+      color: green;
+      font-weight: bold;
+    }
+
+    .unwatched {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN / REGISTER -->
+  <div id="auth-section">
+    <h2>Login or Register</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="login-btn">Login</button>
+    <button id="register-btn">Register</button>
+    <p id="auth-msg"></p>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app" style="display: none;">
+    <h1>Movie Watchlist</h1>
+    <p id="welcome"></p>
+
+    <input type="text" id="search-input" placeholder="Search for a movie...">
+    <button id="search-button">Search</button>
+
+    <div id="search-results"></div>
+
+    <h2>My Watchlist</h2>
+    <label for="filter">Filter:</label>
+    <select id="filter">
+      <option value="all">All</option>
+      <option value="watched">Watched</option>
+      <option value="unwatched">Unwatched</option>
+    </select>
+
+    <ul id="movie-list"></ul>
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
